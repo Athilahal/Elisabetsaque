@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Background Image Example</title>
+<style>
+    body {
+        background-image: url('file:///C:/Users/Athila/Desktop/elisa%20bet%20saque/1.png');
+        background-size: cover;
+        background-position: center top;
+        background-repeat: no-repeat;
+        position: relative;
+        height: 100vh;
+        text-align: center;
+    }
+    #editable-text {
+        padding: 20px;
+        font-size: 50px;
+        background-color: rgba(255, 255, 255, 0);
+        color: white;
+        border-radius: 10px;
+        width: 50%;
+        margin: 50px auto;
+        display: inline-block;
+        cursor: text;
+        border: none;
+        outline: none;
+        font-family: 'Reboto', sans-serif;
+        position: absolute;
+        top: 14%; /* Move o elemento para o topo em 50% */
+        left: 34%; /* Move o elemento para a esquerda em 50% */
+        transform: translate(-50%, -50%); /* Centraliza o elemento */
+    }
+    #editable-text-2 {
+        padding: 30px;
+        font-size: 17px;
+        background-color: rgba(255, 255, 255, 0);
+        color: rgb(20, 77, 233);
+        border-radius: 10px;
+        width: 50%;
+        margin: 10px auto;
+        display: inline-block;
+        cursor: text;
+        border: none;
+        outline: none;
+        font-family: 'Reboto', sans-serif;
+        position: absolute;
+        top: 1.50%; /* Move o segundo elemento para baixo */
+        left: 82%; /* Move o segundo elemento mais para a direita */
+        transform: translate(-50%, -50%); /* Centraliza o segundo elemento */
+    }
+    button.transparent-button {
+        padding: 10px 20px;
+        font-size: 20px;
+        background-color: transparent;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        position: fixed;
+        bottom: 655px;
+        right: 1165px;
+        font-family: 'Reboto', sans-serif;
+    }
+</style>
+</head>
+<body>
+    <div id="editable-text" contenteditable="true">R$ 0,00.</div>
+    
+    <!-- Moved div with the same id and contenteditable attribute -->
+    <div id="editable-text-2" contenteditable="true">R$1,00</div>
+
+    <button class="transparent-button" onclick="window.location.href='file:///C:/Users/Athila/Desktop/elisa%20bet%20saque/2.html'">_____</button>
+
+    <script>
+        function formatInputValue(input) {
+            let value = input.value.replace(/[^0-9.]/g, '');
+            let parts = value.split('.');
+            let integerPart = parts[0] || '';
+            let decimalPart = parts[1] || '';
+            integerPart = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            decimalPart = decimalPart.slice(0, 2);
+            input.value = integerPart + (decimalPart ? '.' + decimalPart : '');
+            input.scrollLeft = input.scrollWidth;
+        }
+    </script>
+</body>
+</html>

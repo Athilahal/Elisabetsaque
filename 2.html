@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Image Example</title>
+    <style>
+        body {
+            background-image: url('file:///C:/Users/Athila/Desktop/elisa%20bet%20saque/2.png');
+            background-size: cover; /* Ajuste para 'cover' para cobrir completamente o corpo */
+            background-position: center top; /* Centraliza a imagem na horizontal e coloca no topo */
+            background-repeat: no-repeat; /* Para evitar que a imagem se repita */
+            text-align: center; /* Para centralizar o botão */
+            padding-top: 80vh; /* Para posicionar o botão na parte inferior */
+            position: relative; /* Necessário para posicionar a entrada de texto */
+        }
+        button.transparent-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: transparent; /* Deixa o fundo do botão transparente */
+            color: white; /* Define a cor do texto como branca */
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-bottom: 20px; /* Espaço entre os botões */
+            position: fixed; /* Mantém o botão fixo na página */
+            bottom: 257px; /* Ajusta a distância do fundo da página */
+            right: 918px; /* Ajusta a distância da direita da página */
+        }
+        input[type="text"] {
+            width: 70%;
+            padding: 0; /* removendo o preenchimento */
+            margin: auto;
+            display: block;
+            border: none; /* removendo a borda */
+            background-color: transparent; /* torna a barra de entrada de texto transparente */
+            color: white; /* define a cor do texto como branco */
+            font-size: 16px;
+            text-align: center; /* centralizando o texto */
+            position: fixed; /* mantém a barra de entrada de texto fixa na página */
+            bottom: 410px; /* ajusta a distância do fundo da página */
+            right: 440px; /* ajusta a distância da direita da página */
+            outline: none; /* remove a borda quando focada */
+        }
+        input[type="text"]::placeholder {
+            color: rgb(194, 187, 187); /* define a cor do texto do placeholder */
+        }
+    </style>
+</head>
+<body>
+    <!-- Seu conteúdo vai aqui -->
+    <input type="text" placeholder="R$: Valor" oninput="formatInputValue(this)">
+    <button class="transparent-button" onclick="window.location.href='file:///C:/Users/Athila/Desktop/elisa%20bet%20saque/3.html'">_____</button>
+
+    <script>
+        function formatInputValue(input) {
+            // Remove todos os caracteres que não são números ou ponto
+            let value = input.value.replace(/[^0-9.]/g, '');
+            
+            // Separa a parte inteira da parte decimal
+            let parts = value.split('.');
+            let integerPart = parts[0] || '';
+            let decimalPart = parts[1] || '';
+
+            // Formata a parte inteira com separador de milhares
+            integerPart = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+            // Limita a parte decimal a dois dígitos
+            decimalPart = decimalPart.slice(0, 2);
+
+            // Atualiza o valor no campo de entrada
+            input.value = integerPart + (decimalPart ? '.' + decimalPart : '');
+
+            // Desliza o texto para a esquerda
+            input.scrollLeft = input.scrollWidth;
+        }
+    </script>
+</body>
+</html>
